@@ -1,5 +1,8 @@
 
 public class ProductionLine {
+	
+	private Tower inputQueue;
+	private Tower outputQueue;
 
 	public ProductionLine(){
 		
@@ -19,6 +22,7 @@ public class ProductionLine {
 	
 	public Disk removeTower(){
 		//pop method
+		return inputQueue.pop();
 	}
 	
 }
