@@ -1,28 +1,29 @@
+import java.util.Queue;
 
 public class ProductionLine {
 	
-	private Tower inputQueue;
-	private Tower outputQueue;
+	private Queue<Disk> input;
+	private Queue<Tower> output;
+	private Tower pyramid;
 
 	public ProductionLine(){
 		
 	}
 	
-	public void addDisk(){
-		//uses comparable for Disk 
+	public void addDisk(Disk d){
+		input.add(d);
 	}
 	
 	public void unloadRobot(){
-		//copies over a stack
+		pyramid.flip();
 	}
 	
 	public void process(){
-		//push method
+		
 	}
 	
 	public Disk removeTower(){
-		//pop method
-		return inputQueue.pop();
+	
 	}
 	
 }

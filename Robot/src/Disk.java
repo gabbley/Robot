@@ -1,13 +1,23 @@
 
-public class Disk {
+public class Disk implements Comparable<Disk> {
 
 	private int radius;
-	
-	public Disk(int r){
+
+	public Disk(int r) {
 		radius = r;
 	}
-	 //comparable?
-	public int getRadius(){
+
+	public int getRadius() {
 		return radius;
 	}
+
+	@Override
+	public int compareTo(Disk o) {
+		return this.radius - o.radius;
+	}
+
+	public String toString(){
+		return radius + "";
+	}
 }
+
