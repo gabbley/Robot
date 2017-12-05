@@ -4,10 +4,14 @@ public class ProductionLine {
 	
 	private Queue<Disk> input;
 	private Queue<Tower> output;
-	private Tower pyramid;
+	private Tower arm;
 
 	public ProductionLine(){
-		
+		input = new Queue<Disk>();
+		output = new Queue<Disk>();
+		//smh this doesnt work boiiiiii
+		//linkedlist?
+				
 	}
 	
 	public void addDisk(Disk d){
@@ -15,7 +19,8 @@ public class ProductionLine {
 	}
 	
 	public void unloadRobot(){
-		pyramid.flip();
+		arm.flip();
+		output.add(arm);
 	}
 	
 	public void process(){
@@ -23,7 +28,7 @@ public class ProductionLine {
 	}
 	
 	public Disk removeTower(){
-	
+		//arm.remove()
 	}
 	
 }
