@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class ProductionLine {
@@ -7,10 +8,8 @@ public class ProductionLine {
 	private Tower arm;
 
 	public ProductionLine(){
-		input = new Queue<Disk>();
-		output = new Queue<Disk>();
-		//smh this doesnt work boiiiiii
-		//linkedlist?
+		input = new LinkedList<Disk>();
+		output = new LinkedList<Tower>();
 				
 	}
 	
@@ -28,7 +27,7 @@ public class ProductionLine {
 	}
 	
 	public Disk removeTower(){
-		//arm.remove()
+		
 	}
 	
 }
