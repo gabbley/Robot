@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class ProductionLine {
 
@@ -18,7 +19,17 @@ public class ProductionLine {
 	}
 
 	public void unloadRobot() {
-		arm.flip();
+		Stack<Disk> flippedStack = new Stack<Disk>();
+
+		// if robot's arm is empty
+		while (!arm.isEmpty()) { 
+			flippedStack.push(arm.pop());
+		}
+
+		while (!flippedStack.isEmpty()) {
+			arm.push(flippedStack.pop());
+		}
+		
 		output.add(arm);
 		arm = new Tower();
 	}
@@ -27,6 +38,7 @@ public class ProductionLine {
 		while (!input.isEmpty()) {
 			Disk d = input.peek();
 			input.remove(d);
+			arm.push(d);
 		}
 	}
 

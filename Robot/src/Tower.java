@@ -11,18 +11,7 @@ public class Tower extends Stack<Disk>{
 		this.push(d);
 	}
 	
-	public void flip(){
-		Stack<Disk> flippedStack = new Stack<Disk>();
-		
-		//if robot's arm is empty
-		while (!this.isEmpty()){
-				flippedStack.push(this.pop());
-		}
-		
-		while (!flippedStack.isEmpty()){
-			this.push(flippedStack.pop());
-		}
-	}
+	
 	
 	
 }
