@@ -19,17 +19,8 @@ public class ProductionLine {
 	}
 
 	public void unloadRobot() {
-		Stack<Disk> flippedStack = new Stack<Disk>();
+		arm.flip();
 
-		// if robot's arm is empty
-		while (!arm.isEmpty()) { 
-			flippedStack.push(arm.pop());
-		}
-
-		while (!flippedStack.isEmpty()) {
-			arm.push(flippedStack.pop());
-		}
-		
 		output.add(arm);
 		arm = new Tower();
 	}
@@ -51,6 +42,17 @@ public class ProductionLine {
 			t = null;
 		}
 		return t;
+	}
+
+	public String toString() {
+		String res = "";
+		for (Disk d : input) {
+			for (int i = 0; i < d.getRadius(); i++) {
+				res += "*";
+			}
+			res += "\n";
+		}
+		return res + "\n";
 	}
 
 }
