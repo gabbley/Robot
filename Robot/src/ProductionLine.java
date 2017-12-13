@@ -11,6 +11,7 @@ public class ProductionLine {
 	public ProductionLine() {
 		input = new LinkedList<Disk>();
 		output = new LinkedList<Tower>();
+		arm = new Tower();
 
 	}
 
@@ -20,25 +21,32 @@ public class ProductionLine {
 
 	public void unloadRobot() {
 		arm.flip();
-
 		output.add(arm);
 		arm = new Tower();
 	}
 
 	public void process() {
 		Queue<Disk> temp = new LinkedList<Disk>();
-		for (Disk d : input) {
-			while (!input.isEmpty()) {
-				Disk topDisk = input.remove();
-				if (!arm.isEmpty()) {
-					if (arm.peek().compareTo(topDisk) < 0) { // topDisk rly the top	
-						unloadRobot(); //no need to sort
-					}
+		while (!input.isEmpty()) { // while there's stuff in input
+			Disk topDisk = input.remove(); // store the topValue and popItOffBoy
+			if (!arm.isEmpty()) { // if the arm isn't empty
+				// you compare the first disk of input and top of arm
+				if (arm.peek().compareTo(topDisk) < 0) { // if topDisk rly the
+															// top
+					unloadRobot(); // no need to sort
+				} else { // if topDisk aint the top, you need to sort
+					temp.add(topDisk); //temp hold the topDisk value
+					topDisk = arm.pop(); //new topDisk
+ //TODO just need to keep comparing Disks until sorted
+					while (!temp.isEmpty()) //not really sure what im doing here
+						arm.push(temp.remove());
 				}
+			} else {
+				arm.push(topDisk);
 			}
 		}
 	}
-	
+
 	// *
 	// ******
 	//
@@ -60,8 +68,9 @@ public class ProductionLine {
 	public String toString() {
 		String res = "";
 		for (Disk d : input) {
+			String block = d.getRadius() + "";
 			for (int i = 0; i < d.getRadius(); i++) {
-				res += "*";
+				res += block + "|";
 			}
 			res += "\n";
 		}
