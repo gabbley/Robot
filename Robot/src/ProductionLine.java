@@ -24,24 +24,25 @@ public class ProductionLine {
 	}
 
 	/**
-	 * **
+	 * Adds disk to assembly line (input queue).
 	 * @param Disk object
-	 * adds Disk to input/assembly line Queue
 	 */
 	public void addDisk(Disk d) {
 		input.add(d);
 	}
 
 	/**
-	 * **
-	 * 
+	 * Flips Disk pyramid in robot arm, adds Disks to output, then empties arm.
 	 */
 	public void unloadRobot() {
 		arm.flip();
 		output.add(arm);
-		arm = new Tower();
+		arm = new Tower(); //unloads the arm
 	}
 
+	/**
+	 * Adds Disks from assembly line to robot arm.
+	 */
 	public void process() {
 		Queue<Disk> temp = new LinkedList<Disk>();
 		while (!input.isEmpty()) { // while there's stuff in input
