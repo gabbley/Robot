@@ -2,6 +2,7 @@
 public class TestProductionLine {
 
 	public static void main(String[] args) {
+		Disk test5 = new Disk(5);
 		Disk test1 = new Disk(1);
 		Disk test11 = new Disk(11);
 		Disk test9 = new Disk(9);
@@ -9,6 +10,7 @@ public class TestProductionLine {
 		Disk test10 = new Disk(10);
 
 		ProductionLine p = new ProductionLine();
+		p.addDisk(test5);
 		p.addDisk(test1);
 		p.addDisk(test11);
 		p.addDisk(test9);
@@ -19,7 +21,7 @@ public class TestProductionLine {
 		
 		p.process();
 		
-		System.out.println(p);
+		System.out.println("Test Process:\n" + p);
 		
 		//negative, positive, equal comapreTo
 		

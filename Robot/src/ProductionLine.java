@@ -1,3 +1,10 @@
+/**
+ * <h1>ProductionLine</h1>
+ * <br/><br/>
+ * @author Gabby Baniqued
+ */
+
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -8,6 +15,7 @@ public class ProductionLine {
 	private Queue<Tower> output;
 	private Tower arm;
 
+	
 	public ProductionLine() {
 		input = new LinkedList<Disk>();
 		output = new LinkedList<Tower>();
@@ -15,10 +23,19 @@ public class ProductionLine {
 
 	}
 
+	/**
+	 * **
+	 * @param Disk object
+	 * adds Disk to input/assembly line Queue
+	 */
 	public void addDisk(Disk d) {
 		input.add(d);
 	}
 
+	/**
+	 * **
+	 * 
+	 */
 	public void unloadRobot() {
 		arm.flip();
 		output.add(arm);
@@ -47,13 +64,11 @@ public class ProductionLine {
 		}
 	}
 
-	// *
-	// ******
-	//
-	// ***
-	// **
-	// *
 
+	/**
+	 * **
+	 * @return Tower 
+	 */
 	public Tower removeTower() {
 		Tower t = new Tower();
 		if (!output.isEmpty()) {
@@ -65,6 +80,11 @@ public class ProductionLine {
 		return t;
 	}
 
+	/**
+	 * **
+	 * 
+	 * @return Disk of radius num
+	 */
 	public String toString() {
 		String res = "";
 		for (Disk d : input) {
