@@ -1,10 +1,8 @@
-
 /**
  * <h1>ProductionLine</h1>
  * <br/><br/>
  * @author Gabby Baniqued
  */
-////ss//ss
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -12,10 +10,15 @@ import java.util.Stack;
 
 public class ProductionLine {
 
+
+	//fields used in ProductionLine
 	private Queue<Disk> input;
 	private Queue<Tower> output;
 	private Tower arm;
 
+	/**
+	 * Default Constructor
+	 */
 	public ProductionLine() {
 		input = new LinkedList<Disk>();
 		output = new LinkedList<Tower>();
@@ -24,10 +27,8 @@ public class ProductionLine {
 	}
 
 	/**
-	 * Adds disk to assembly line (input queue).
-	 * 
-	 * @param Disk
-	 *            object
+	 * Adds Disk to assembly line (input queue).
+	 * @param Disk to be added to input
 	 */
 	public void addDisk(Disk d) {
 		input.add(d);
@@ -43,13 +44,14 @@ public class ProductionLine {
 	}
 
 	/**
-	 * Adds Disks from assembly line to robot arm.
+	 * Adds Disks from assembly line to robot arm. 
+	 Flips the pyramid then adds to outgoing assembly line.
 	 */
 	public void process() {
 		while (!input.isEmpty()) {
 			Disk topDisk = input.remove();
 			if (!arm.isEmpty()) {
-				if (arm.peek().compareTo(topDisk) < 0) {
+				if (arm.peek().compareTo(topDisk) <= 0) {
 					unloadRobot();
 				}
 			}
@@ -61,11 +63,9 @@ public class ProductionLine {
 
 	}
 
-
 	/**
-	 * **
-	 * 
-	 * @return Tower
+	 * Removes a Tower from the output Queue.
+	 * @return Tower removed.
 	 */
 	public Tower removeTower() {
 		Tower t = new Tower();
@@ -79,9 +79,8 @@ public class ProductionLine {
 	}
 
 	/**
-	 * **
-	 * 
-	 * @return Disk of radius num
+	 * Prints each Disk in input Queue.
+	 * @return String of input Disks.
 	 */
 	public String printInput() {
 		String res = "";
@@ -96,6 +95,10 @@ public class ProductionLine {
 		return res + "\n";
 	}
 
+	/**
+	 * Prints each Tower of finished output Queue.
+	 * @return String of finished Tower.
+	 */
 	public String printOutput() {
 		String res = "";
 		for (Tower t : output) {
@@ -104,5 +107,6 @@ public class ProductionLine {
 		return res;
 
 	}
+
 
 }
