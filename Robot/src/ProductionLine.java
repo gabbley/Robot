@@ -29,18 +29,17 @@ public class ProductionLine {
 		Queue<Disk> temp = new LinkedList<Disk>();
 		for (Disk d : input) {
 			while (!input.isEmpty()) {
-				Disk topDisk = input.peek();
-				if (arm.isEmpty()) {
-					topDisk = input.remove();
-					arm.push(topDisk);
-				} else if (arm.peek().compareTo(topDisk) < 0) {
-					arm.push(topDisk);
-					
+				Disk topDisk = input.remove();
+				if (!arm.isEmpty()) {
+					if (arm.peek().compareTo(topDisk) < 0) { // topDisk rly the top	
+						unloadRobot(); //no need to sort
+					}
 				}
 			}
 		}
 	}
 	
+	// *
 	// ******
 	//
 	// ***
