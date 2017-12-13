@@ -1,3 +1,9 @@
+/**
+ * <h1>Tower</h1>
+ * <br/><br/>
+ * @author Gabby Baniqued
+ */
+
 import java.util.Stack;
 
 public class Tower extends Stack<Disk> {

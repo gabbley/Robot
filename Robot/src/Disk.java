@@ -1,3 +1,8 @@
+/**
+ * <h1>Disk</h1>
+ * <br/><br/>
+ * @author Gabby Baniqued
+ */
 
 public class Disk implements Comparable<Disk> {
 
