@@ -26,12 +26,26 @@ public class ProductionLine {
 	}
 
 	public void process() {
-		while (!input.isEmpty()) {
-			Disk d = input.peek();
-			input.remove(d);
-			arm.push(d);
+		Queue<Disk> temp = new LinkedList<Disk>();
+		for (Disk d : input) {
+			while (!input.isEmpty()) {
+				Disk topDisk = input.peek();
+				if (arm.isEmpty()) {
+					topDisk = input.remove();
+					arm.push(topDisk);
+				} else if (arm.peek().compareTo(topDisk) < 0) {
+					arm.push(topDisk);
+					
+				}
+			}
 		}
 	}
+	
+	// ******
+	//
+	// ***
+	// **
+	// *
 
 	public Tower removeTower() {
 		Tower t = new Tower();
