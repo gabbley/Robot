@@ -17,8 +17,6 @@ public class Tower extends Stack<Disk> {
 		this.push(d);
 	}
 
-
-
 	public void flip() {
 		Stack<Disk> flippedStack = new Stack<Disk>();
 
@@ -30,7 +28,15 @@ public class Tower extends Stack<Disk> {
 		while (!flippedStack.isEmpty()) {
 			this.push(flippedStack.pop());
 		}
-		
+
+	}
+
+	public String toString() {
+		String result = "{";
+		while (!this.isEmpty()) {
+			result += this.pop() + "|";
+		}
+		return result + "}";
 	}
 
 }

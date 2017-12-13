@@ -1,3 +1,4 @@
+
 /**
  * <h1>ProductionLine</h1>
  * <br/><br/>
@@ -15,7 +16,6 @@ public class ProductionLine {
 	private Queue<Tower> output;
 	private Tower arm;
 
-	
 	public ProductionLine() {
 		input = new LinkedList<Disk>();
 		output = new LinkedList<Tower>();
@@ -25,7 +25,9 @@ public class ProductionLine {
 
 	/**
 	 * Adds disk to assembly line (input queue).
-	 * @param Disk object
+	 * 
+	 * @param Disk
+	 *            object
 	 */
 	public void addDisk(Disk d) {
 		input.add(d);
@@ -37,38 +39,33 @@ public class ProductionLine {
 	public void unloadRobot() {
 		arm.flip();
 		output.add(arm);
-		arm = new Tower(); //unloads the arm
+		arm = new Tower(); // unloads the arm
 	}
 
 	/**
 	 * Adds Disks from assembly line to robot arm.
 	 */
 	public void process() {
-		Queue<Disk> temp = new LinkedList<Disk>();
-		while (!input.isEmpty()) { // while there's stuff in input
-			Disk topDisk = input.remove(); // store the topValue and popItOffBoy
-			if (!arm.isEmpty()) { // if the arm isn't empty
-				// you compare the first disk of input and top of arm
-				if (arm.peek().compareTo(topDisk) < 0) { // if topDisk rly the
-															// top
-					unloadRobot(); // no need to sort
-				} else { // if topDisk aint the top, you need to sort
-					temp.add(topDisk); //temp hold the topDisk value
-					topDisk = arm.pop(); //new topDisk
- //TODO just need to keep comparing Disks until sorted
-					while (!temp.isEmpty()) //not really sure what im doing here
-						arm.push(temp.remove());
+		while (!input.isEmpty()) {
+			Disk topDisk = input.remove();
+			if (!arm.isEmpty()) {
+				if (arm.peek().compareTo(topDisk) < 0) {
+					unloadRobot();
 				}
-			} else {
-				arm.push(topDisk);
 			}
+			arm.push(topDisk);
 		}
+		if (!arm.isEmpty()) {
+			unloadRobot();
+		}
+
 	}
 
 
 	/**
 	 * **
-	 * @return Tower 
+	 * 
+	 * @return Tower
 	 */
 	public Tower removeTower() {
 		Tower t = new Tower();
@@ -86,7 +83,7 @@ public class ProductionLine {
 	 * 
 	 * @return Disk of radius num
 	 */
-	public String toString() {
+	public String printInput() {
 		String res = "";
 		for (Disk d : input) {
 			String block = d.getRadius() + "";
@@ -95,7 +92,17 @@ public class ProductionLine {
 			}
 			res += "\n";
 		}
+
 		return res + "\n";
+	}
+
+	public String printOutput() {
+		String res = "";
+		for (Tower t : output) {
+			res += t.toString() + "\n";
+		}
+		return res;
+
 	}
 
 }
