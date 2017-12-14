@@ -1,6 +1,7 @@
 /**
- * <h1>TestProductionLine</h1>Class to test the methods of ProductionLine.
- * <br/><br/>
+ * <h1>TestProductionLine</h1>Class to test the methods of ProductionLine. <br/>
+ * <br/>
+ * 
  * @author Gabby Baniqued
  */
 public class TestProductionLine {
@@ -20,8 +21,8 @@ public class TestProductionLine {
 		testProcess(p, "Initial Input Queue:", "Output Queue");
 
 		// TEST 2 - Empty Queue
-//		ProductionLine empty = new ProductionLine();
-//		testProcess(empty, "Empty Input Queue", "Empty Output Queue");
+		// ProductionLine empty = new ProductionLine();
+		// testProcess(empty, "Empty Input Queue", "Empty Output Queue");
 
 		// TEST 3 - All the same radius
 		ProductionLine same = new ProductionLine();
@@ -38,14 +39,14 @@ public class TestProductionLine {
 			rand.addDisk(new Disk((int) (Math.random() * 10)));
 
 		testProcess(rand, "Random Disks", "Random Disks");
-		
+
 		// TEST 5 - Remove Tower
 		ProductionLine removing = new ProductionLine();
 
 		for (int i = 0; i < 10; i++)
-		removing.addDisk(new Disk((int) (Math.random() * 10)));
+			removing.addDisk(new Disk((int) (Math.random() * 10)));
 
-
+		removing.process();
 		System.out.println("Tower Removed:" + removing.getOutput().removeTower());
 		System.out.println("After Removing: \n" + removing.printOutput());
 
