@@ -44,10 +44,10 @@ public class TestProductionLine {
 		ProductionLine removing = new ProductionLine();
 
 		for (int i = 0; i < 10; i++)
-			removing.addDisk(new Disk((int) (Math.random() * 10)));
+			removing.addDisk(new Disk(2));
 
+		System.out.println("Before Removing: \n" + removing.printInput());
 		removing.process();
-		System.out.println("Tower Removed:" + removing.getOutput().removeTower());
 		System.out.println("After Removing: \n" + removing.printOutput());
 
 	}

@@ -78,6 +78,7 @@ public class ProductionLine {
 		Tower t = new Tower();
 		if (!output.isEmpty()) {
 			t = output.peek();
+			System.out.println("Removed: " + t);
 			return output.remove();
 		} else {
 			return t = null;
