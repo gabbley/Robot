@@ -43,13 +43,11 @@ public class TestProductionLine {
 		ProductionLine removing = new ProductionLine();
 
 		for (int i = 0; i < 10; i++)
-			removing.addDisk(new Disk((int) (Math.random() * 10)));
+		removing.addDisk(new Disk((int) (Math.random() * 10)));
 
-		System.out.println("Before Removing: ");
-		testProcess(removing, "", "");
-		System.out.println("Tower Removed:" + removing.removeTower());
-		System.out.println("After Removing: ");
-		removing.printOutput();
+
+		System.out.println("Tower Removed:" + removing.getOutput().removeTower());
+		System.out.println("After Removing: \n" + removing.printOutput());
 
 	}
 

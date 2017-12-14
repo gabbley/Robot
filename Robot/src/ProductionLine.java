@@ -27,6 +27,13 @@ public class ProductionLine {
 	}
 
 	/**
+	 * Getter for output.
+	 */
+	public Queue<Tower> getOutput(){
+		return output;
+	}
+	
+	/**
 	 * Adds Disk to assembly line (input queue).
 	 * @param Disk to be added to input
 	 */
@@ -71,11 +78,10 @@ public class ProductionLine {
 		Tower t = new Tower();
 		if (!output.isEmpty()) {
 			t = output.peek();
-			output.remove(t);
+			return output.remove();
 		} else {
-			t = null;
+			return t = null;
 		}
-		return t;
 	}
 
 	/**
