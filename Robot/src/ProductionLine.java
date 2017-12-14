@@ -28,6 +28,7 @@ public class ProductionLine {
 
 	/**
 	 * Getter for output.
+	 * @return output Tower
 	 */
 	public Queue<Tower> getOutput(){
 		return output;
@@ -84,36 +85,7 @@ public class ProductionLine {
 			return t = null;
 		}
 	}
-
-	/**
-	 * Prints each Disk in input Queue.
-	 * @return String of input Disks.
-	 */
-	public String printInput() {
-		String res = "";
-		for (Disk d : input) {
-			String block = d.getRadius() + "";
-			for (int i = 0; i < d.getRadius(); i++) {
-				res += block + "|";
-			}
-			res += "\n";
-		}
-
-		return res + "\n";
-	}
-
-	/**
-	 * Prints each Tower of finished output Queue.
-	 * @return String of finished Tower.
-	 */
-	public String printOutput() {
-		String res = "";
-		for (Tower t : output) {
-			res += t.toString() + "\n";
-		}
-		return res;
-
-	}
+	
 
 
 }

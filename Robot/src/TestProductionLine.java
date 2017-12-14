@@ -50,6 +50,9 @@ public class TestProductionLine {
 		removing.process();
 		System.out.println("After Removing: \n" + removing.printOutput());
 
+		// TEST 5 - Negative Radius
+		Disk neg = new Disk(-1);
+
 	}
 
 	/**

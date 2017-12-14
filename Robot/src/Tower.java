@@ -17,7 +17,7 @@ public class Tower extends Stack<Disk> {
 
 	/**
 	 * Adds Disk to Tower.
-	 * @param Disk to be added.
+	 * @param d to be added.
 	 */
 	public void addDisk(Disk d) {
 		this.push(d);
