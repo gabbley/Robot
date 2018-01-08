@@ -1,3 +1,4 @@
+
 /**
  * <h1>ProductionLine</h1>
  * <br/><br/>
@@ -10,8 +11,7 @@ import java.util.Stack;
 
 public class ProductionLine {
 
-
-	//fields used in ProductionLine
+	// fields used in ProductionLine
 	private Queue<Disk> input;
 	private Queue<Tower> output;
 	private Tower arm;
@@ -28,15 +28,18 @@ public class ProductionLine {
 
 	/**
 	 * Getter for output.
+	 * 
 	 * @return output Tower
 	 */
-	public Queue<Tower> getOutput(){
+	public Queue<Tower> getOutput() {
 		return output;
 	}
-	
+
 	/**
 	 * Adds Disk to assembly line (input queue).
-	 * @param Disk to be added to input
+	 * 
+	 * @param Disk
+	 *            to be added to input
 	 */
 	public void addDisk(Disk d) {
 		input.add(d);
@@ -52,8 +55,8 @@ public class ProductionLine {
 	}
 
 	/**
-	 * Adds Disks from assembly line to robot arm. 
-	 Flips the pyramid then adds to outgoing assembly line.
+	 * Adds Disks from assembly line to robot arm. Flips the pyramid then adds
+	 * to outgoing assembly line.
 	 */
 	public void process() {
 		while (!input.isEmpty()) {
@@ -73,6 +76,7 @@ public class ProductionLine {
 
 	/**
 	 * Removes a Tower from the output Queue.
+	 * 
 	 * @return Tower removed.
 	 */
 	public Tower removeTower() {
@@ -85,7 +89,35 @@ public class ProductionLine {
 			return t = null;
 		}
 	}
-	
 
+	/**
+	 * - * ** - * - * @return Disk of radius num + * Prints each Disk in input
+	 * Queue. + * @return String of input Disks.
+	 */
+
+	public String printInput() {
+		String res = "";
+
+		for (Disk d : input) {
+			String block = d.getRadius() + "";
+			for (int i = 0; i < d.getRadius(); i++) {
+				res += block + "|";
+			}
+			res += "\n";
+		}
+		return res + "\n";
+	}
+
+	/**
+	 * + * Prints each Tower of finished output Queue. + * @return String of
+	 * finished Tower. +
+	 */
+	public String printOutput() {
+		String res = "";
+		for (Tower t : output) {
+			res += t.toString() + "\n";
+		}
+		return res;
+	}
 
 }
